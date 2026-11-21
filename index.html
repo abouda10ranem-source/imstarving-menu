@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="theme-color" content="#e63946">
+<meta name="description" content="Menu digital I'm Starving Foods - Bab Ezzouar. Burgers, Tacos, Sandwichs, Pâtes et plus. Frais, généreux, fait pour toi.">
+<title>I'm Starving Foods — Menu Digital | Bab Ezzouar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#e63946; --red-dark:#c1121f; --orange:#f77f00; --gold:#fcbf49;
+  --cream:#fffaf3; --ink:#1d1d1b; --muted:#6b6b6b; --line:#f0e6da;
+  --card:#ffffff; --shadow:0 6px 22px rgba(120,40,10,.10);
+  --radius:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--cream);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body[dir="rtl"]{font-family:'Cairo',system-ui,sans-serif}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+
+/* ===== HEADER ===== */
+.topbar{position:relative;background:linear-gradient(135deg,var(--red) 0%,var(--orange) 100%);color:#fff;padding:18px 18px 64px;overflow:hidden;border-radius:0 0 30px 30px}
+.topbar::before{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.08);top:-90px;right:-70px}
+.topbar::after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.06);bottom:-60px;left:-40px}
+.topbar-inner{position:relative;z-index:2;max-width:680px;margin:0 auto}
+.brand-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:11px}
+.brand-icon{width:50px;height:50px;background:#fff;border-radius:14px;display:grid;place-items:center;font-size:28px;box-shadow:0 4px 14px rgba(0,0,0,.15);flex-shrink:0}
+.brand-name{font-weight:900;font-size:20px;letter-spacing:-.5px;line-height:1.1}
+.brand-name span{display:block;font-size:11px;font-weight:600;opacity:.9;letter-spacing:1.5px;text-transform:uppercase;margin-top:3px}
+.lang-toggle{display:flex;background:rgba(255,255,255,.18);border-radius:999px;padding:4px;backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.25);flex-shrink:0}
+.lang-toggle button{padding:6px 11px;border-radius:999px;font-size:12px;font-weight:800;color:#fff;transition:.25s;white-space:nowrap}
+.lang-toggle button.active{background:#fff;color:var(--red);box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.tagline{font-size:12.5px;font-weight:700;letter-spacing:.6px;margin-top:20px;opacity:.95;text-transform:uppercase}
+.headline{font-size:27px;font-weight:900;letter-spacing:-.8px;margin-top:4px;line-height:1.15}
+.location{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:12.5px;font-weight:600;background:rgba(255,255,255,.18);padding:6px 12px;border-radius:999px;backdrop-filter:blur(4px)}
+.search-wrap{position:relative;margin-top:18px;z-index:3}
+.search-wrap svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);width:18px;height:18px;stroke:#999}
+body[dir="rtl"] .search-wrap svg{left:auto;right:15px}
+.search-wrap input{width:100%;padding:14px 16px 14px 44px;border:none;border-radius:14px;font-size:14px;font-weight:500;box-shadow:0 4px 16px rgba(0,0,0,.12);outline:none;background:#fff;color:var(--ink)}
+body[dir="rtl"] .search-wrap input{padding:14px 44px 14px 16px}
+.search-wrap input::placeholder{color:#aaa}
+
+/* ===== STICKY NAV ===== */
+.nav-wrap{position:sticky;top:0;z-index:50;background:rgba(255,250,243,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-scroll{display:flex;gap:8px;overflow-x:auto;padding:11px 16px;max-width:720px;margin:0 auto;scrollbar-width:none}
+.nav-scroll::-webkit-scrollbar{display:none}
+.nav-pill{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;padding:9px 14px;border-radius:999px;background:#fff;border:1.5px solid var(--line);font-size:12.5px;font-weight:700;color:var(--muted);transition:.22s;flex-shrink:0}
+.nav-pill .em{font-size:15px}
+.nav-pill.active{background:var(--red);border-color:var(--red);color:#fff;box-shadow:0 4px 12px rgba(230,57,70,.3)}
+body[dir="rtl"] .nav-scroll{flex-direction:row}
+
+/* ===== CONTENT ===== */
+main{max-width:720px;margin:0 auto;padding:6px 16px 120px}
+.cat{padding-top:30px;scroll-margin-top:70px}
+.cat-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.cat-icon{font-size:28px;width:46px;height:46px;background:#fff;border-radius:14px;display:grid;place-items:center;box-shadow:var(--shadow);flex-shrink:0}
+.cat-title{font-size:21px;font-weight:900;letter-spacing:-.5px}
+.cat-count{font-size:11px;font-weight:700;color:var(--muted);background:#fff;padding:3px 9px;border-radius:999px;box-shadow:var(--shadow)}
+.banner{width:100%;height:120px;object-fit:cover;border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:16px}
+
+/* dish card */
+.dish{display:flex;gap:13px;background:var(--card);border-radius:var(--radius);padding:12px;margin-bottom:11px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.025);cursor:pointer;transition:transform .18s,box-shadow .18s;position:relative;overflow:hidden}
+.dish:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(120,40,10,.15)}
+.dish:active{transform:scale(.99)}
+.dish-thumb{width:86px;height:86px;border-radius:13px;object-fit:cover;flex-shrink:0;background:var(--cream)}
+.dish-body{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center}
+.dish-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.dish-name{font-size:15px;font-weight:800;line-height:1.25;letter-spacing:-.2px}
+.dish-desc{font-size:11.5px;color:var(--muted);line-height:1.45;margin-top:5px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.dish-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:8px;margin-top:8px}
+.price{color:var(--red);font-weight:900;font-size:15px;white-space:nowrap}
+.price small{font-size:10px;font-weight:700;opacity:.75}
+.sizes{display:flex;gap:4px;flex-wrap:wrap;margin-top:3px}
+.size{font-size:9.5px;font-weight:800;color:var(--muted);background:var(--cream);padding:3px 7px;border-radius:7px}
+.size b{color:var(--red)}
+.arrow{position:absolute;right:10px;bottom:10px;font-size:12px;color:#ccc}
+body[dir="rtl"] .arrow{right:auto;left:10px;transform:scaleX(-1)}
+.badge{position:absolute;top:0;left:0;background:var(--gold);color:#7a4b00;font-size:9px;font-weight:900;padding:3px 9px;border-bottom-right-radius:10px;text-transform:uppercase;letter-spacing:.4px}
+body[dir="rtl"] .badge{left:auto;right:0;border-bottom-right-radius:0;border-bottom-left-radius:10px}
+.no-photo .dish-thumb{display:grid;place-items:center;font-size:30px;background:linear-gradient(135deg,#fff0e6,#ffe0cc)}
+.empty{text-align:center;padding:60px 20px;color:var(--muted)}
+.empty .em{font-size:48px;display:block;margin-bottom:12px}
+
+/* ===== MODAL ===== */
+.overlay{position:fixed;inset:0;background:rgba(20,10,5,.68);backdrop-filter:blur(4px);z-index:100;display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:.25s}
+.overlay.show{opacity:1;pointer-events:auto}
+.modal{background:#fff;width:100%;max-width:520px;border-radius:26px 26px 0 0;overflow:hidden;transform:translateY(30px);transition:.3s cubic-bezier(.2,.9,.3,1);max-height:90vh;overflow-y:auto}
+.overlay.show .modal{transform:translateY(0)}
+@media(min-width:560px){.overlay{align-items:center}.modal{border-radius:26px}}
+.modal-img{width:100%;height:240px;object-fit:cover;background:var(--cream)}
+.modal-img.emoji-fallback{display:grid;place-items:center;font-size:90px;background:linear-gradient(135deg,#fff0e6,#ffe0cc)}
+.modal-close{position:absolute;top:16px;right:16px;width:36px;height:36px;background:rgba(0,0,0,.45);color:#fff;border-radius:50%;display:grid;place-items:center;font-size:18px;backdrop-filter:blur(4px);z-index:2}
+body[dir="rtl"] .modal-close{right:auto;left:16px}
+.modal-inner{padding:22px}
+.modal-cat{font-size:11px;font-weight:800;color:var(--orange);text-transform:uppercase;letter-spacing:.8px}
+.modal-name{font-size:24px;font-weight:900;margin-top:4px;letter-spacing:-.6px}
+.modal-desc{font-size:13.5px;color:var(--muted);line-height:1.6;margin-top:10px}
+.modal-sizes{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.modal-size{background:var(--cream);border:2px solid var(--line);border-radius:13px;padding:10px 16px;text-align:center;flex:1;min-width:88px}
+.modal-size .lbl{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase}
+.modal-size .val{font-size:16px;font-weight:900;color:var(--red);margin-top:2px}
+.modal-cta{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:20px;width:100%;padding:14px;background:linear-gradient(135deg,var(--red),var(--orange));color:#fff;border-radius:14px;font-weight:800;font-size:14px;text-decoration:none;box-shadow:0 6px 16px rgba(230,57,70,.3)}
+
+/* ===== FOOTER ===== */
+footer{text-align:center;padding:30px 16px 40px;color:var(--muted);font-size:12px;border-top:1px solid var(--line)}
+footer .f-brand{font-size:16px;font-weight:900;color:var(--red);margin-bottom:6px}
+
+/* toast */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:11px 20px;border-radius:999px;font-size:13px;font-weight:700;z-index:200;opacity:0;pointer-events:none;transition:.3s;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand-row">
+      <div class="brand">
+        <div class="brand-icon">🍔</div>
+        <div class="brand-name">IM STARVING<span>FOODS · BAB EZZOUAR</span></div>
+      </div>
+      <div class="lang-toggle">
+        <button id="btnFr" class="active" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button id="btnAr" onclick="setLang('ar')">🇩🇿 العربية</button>
+      </div>
+    </div>
+    <div class="tagline" data-i18n="tagline">FRAIS · GÉNÉREUX · FAIT POUR TOI</div>
+    <div class="headline" data-i18n="headline">T'as faim ? On s'occupe de toi.</div>
+    <div class="location">📍 <span data-i18n="location">Bab Ezzouar, Alger</span> · <span data-i18n="hours">11h – 23h</span></div>
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+      <input id="search" type="search" autocomplete="off" data-i18n-ph="searchPh" placeholder="Rechercher un plat ou un ingrédient…">
+    </div>
+  </div>
+</header>
+
+<div class="nav-wrap">
+  <nav class="nav-scroll" id="nav"></nav>
+</div>
+
+<main id="menu"></main>
+
+<footer>
+  <div class="f-brand">IM STARVING FOODS 🍔</div>
+  <div data-i18n="footer">Frais · Généreux · Fait pour toi — Bab Ezzouar, Alger</div>
+  <div style="margin-top:8px;font-size:11px;opacity:.7">📞 0659 56 46 11</div>
+</footer>
+
+<div class="overlay" id="overlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="modal"></div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ===================== MENU DATA ===================== */
+const C = {
+  burgers:{em:"🍔",fr:"Burgers",ar:"برجر"},
+  crogers:{em:"🍔",fr:"Crogers",ar:"كروجر"},
+  starvation:{em:"🔥",fr:"Starvation",ar:"ستارفيشن"},
+  tacos:{em:"🌮",fr:"Tacos",ar:"تاكو"},
+  sandwichs:{em:"🥪",fr:"Sandwichs",ar:"ساندويتشات"},
+  pates:{em:"🍝",fr:"Pâtes",ar:"معكرونة"},
+  smash:{em:"💥",fr:"Smash Burgers",ar:"سماش برجر"},
+  smashcroger:{em:"💥",fr:"Smash Crogers",ar:"سماش كروجر"},
+  extras:{em:"🥤",fr:"Frites & Boissons",ar:"بطاطس ومشروبات"}
+};
+
+const MENU = [
+/* ---------- BURGERS ---------- */
+{cat:"burgers",img:"burger-1.jpg",fr:{n:"Classique",d:"Steak haché, cheddar, salade, tomate.",ing:"steak haché cheddar salade tomate"},ar:{n:"كلاسيك",d:"لحم مفروم، شيدر، سلطة، طماطم."},sizes:[["Simple",450],["Double",650],["Triple",800]]},
+{cat:"burgers",img:"burger-2.jpg",fr:{n:"Au Poivre",d:"Steak haché, sauce au poivre, salade, tomate.",ing:"steak haché sauce poivre salade tomate"},ar:{n:"بالفلفل",d:"لحم مفروم، صوص الفلفل، سلطة، طماطم."},sizes:[["Simple",450],["Double",650],["Triple",800]]},
+{cat:"burgers",img:"burger-3.jpg",fr:{n:"Forestier",d:"Steak haché, cheddar, champignons, salade, tomate.",ing:"steak haché cheddar champignons salade tomate"},ar:{n:"فورستييه",d:"لحم مفروم، شيدر، فطر، سلطة، طماطم."},sizes:[["Simple",500],["Double",700],["Triple",850]]},
+{cat:"burgers",img:"burger-4.jpg",fr:{n:"Campagnard",d:"Steak haché, cheddar, oignons caramélisés, salade, tomate.",ing:"steak haché cheddar oignons caramélisés salade tomate"},ar:{n:"كامبانيار",d:"لحم مفروم، شيدر، بصل مكرمل، سلطة، طماطم."},sizes:[["Simple",500],["Double",700],["Triple",850]]},
+{cat:"burgers",img:"burger-5.jpg",fr:{n:"Italien",d:"Steak haché, courgettes grillées, aubergines grillées, salade, tomate.",ing:"steak haché courgettes aubergines grillées salade tomate"},ar:{n:"إيطالي",d:"لحم مفروم، كوسا مشوية، باذنجان مشوي، سلطة، طماطم."},sizes:[["Simple",500],["Double",700],["Triple",850]]},
+{cat:"burgers",img:"burger-6.jpg",fr:{n:"Continental",d:"Steak haché, cheddar, œuf, salade, tomate.",ing:"steak haché cheddar oeuf œuf salade tomate"},ar:{n:"كونتيننتال",d:"لحم مفروم، شيدر، بيض، سلطة، طماطم."},sizes:[["Simple",500],["Double",700],["Triple",850]]},
+{cat:"burgers",img:"burger-7.jpg",badge:"⭐",fr:{n:"Starving",d:"Steak haché, poulet, cheddar, œuf, oignons caramélisés, sauce poivre, salade, tomate.",ing:"steak haché poulet cheddar oeuf oignons caramélisés sauce poivre salade tomate"},ar:{n:"ستارفينغ",d:"لحم مفروم، دجاج، شيدر، بيض، بصل مكرمل، صوص الفلفل، سلطة، طماطم."},sizes:[["Simple",800],["Double",950],["Triple",1100]]},
+
+/* ---------- CROGERS ---------- */
+{cat:"crogers",img:"croger-1.jpg",fr:{n:"Classique",d:"Steak haché, cheddar, salade, tomate + barquette de frites.",ing:"steak haché cheddar salade tomate frites"},ar:{n:"كلاسيك",d:"لحم مفروم، شيدر، سلطة، طماطم + علبة بطاطس."},sizes:[["Croger",550]]},
+{cat:"crogers",img:"croger-1.jpg",fr:{n:"Au Poivre",d:"Steak haché, cheddar, sauce au poivre, salade, tomate + frites.",ing:"steak haché cheddar sauce poivre salade tomate frites"},ar:{n:"بالفلفل",d:"لحم مفروم، شيدر، صوص الفلفل، سلطة، طماطم + بطاطس."},sizes:[["Croger",550]]},
+{cat:"crogers",img:"croger-2.jpg",fr:{n:"Forestier",d:"Steak haché, cheddar, champignons, salade, tomate + frites.",ing:"steak haché cheddar champignons salade tomate frites"},ar:{n:"فورستييه",d:"لحم مفروم، شيدر، فطر، سلطة، طماطم + بطاطس."},sizes:[["Croger",650]]},
+{cat:"crogers",img:"croger-2.jpg",fr:{n:"Campagnard",d:"Steak haché, cheddar, oignons caramélisés, salade, tomate + frites.",ing:"steak haché cheddar oignons caramélisés salade tomate frites"},ar:{n:"كامبانيار",d:"لحم مفروم، شيدر، بصل مكرمل، سلطة، طماطم + بطاطس."},sizes:[["Croger",650]]},
+{cat:"crogers",img:"croger-1.jpg",fr:{n:"Italien",d:"Steak haché, courgettes grillées, aubergines grillées, salade, tomate + frites.",ing:"steak haché courgettes aubergines salade tomate frites"},ar:{n:"إيطالي",d:"لحم مفروم، كوسا مشوية، باذنجان مشوي، سلطة، طماطم + بطاطس."},sizes:[["Croger",650]]},
+{cat:"crogers",img:"croger-2.jpg",fr:{n:"Continental",d:"Steak haché, cheddar, œuf, salade, tomate + frites.",ing:"steak haché cheddar oeuf salade tomate frites"},ar:{n:"كونتيننتال",d:"لحم مفروم، شيدر، بيض، سلطة، طماطم + بطاطس."},sizes:[["Croger",650]]},
+{cat:"crogers",img:"burger-7.jpg",badge:"⭐",fr:{n:"Starving",d:"Steak haché, poulet, cheddar, œuf, oignons caramélisés, sauce poivre, salade, tomate + frites.",ing:"steak haché poulet cheddar oeuf oignons caramélisés sauce poivre salade tomate frites"},ar:{n:"ستارفينغ",d:"لحم مفروم، دجاج، شيدر، بيض، بصل مكرمل، صوص الفلفل، سلطة، طماطم + بطاطس."},sizes:[["Croger",850]]},
+
+/* ---------- STARVATION ---------- */
+{cat:"starvation",img:"starvation-1.jpg",fr:{n:"Poulet",d:"Poulet, sauce fromagère, fromage gratiné, frites.",ing:"poulet sauce fromagère fromage gratiné frites"},ar:{n:"دجاج",d:"دجاج، صوص جبنة، جبنة مشوية، بطاطس."},sizes:[["M",350],["L",550]]},
+{cat:"starvation",img:"starvation-2.jpg",fr:{n:"Poulet Curry",d:"Poulet, sauce curry, fromage gratiné, frites.",ing:"poulet sauce curry fromage gratiné frites"},ar:{n:"دجاج بالكاري",d:"دجاج، صوص كاري، جبنة مشوية، بطاطس."},sizes:[["M",550],["L",750]]},
+{cat:"starvation",img:"starvation-3.jpg",fr:{n:"Steak Haché",d:"Steak haché, sauce fromagère, fromage gratiné, frites.",ing:"steak haché sauce fromagère fromage gratiné frites"},ar:{n:"لحم مفروم",d:"لحم مفروم، صوص جبنة، جبنة مشوية، بطاطس."},sizes:[["M",650],["L",850]]},
+{cat:"starvation",img:"starvation-4.jpg",fr:{n:"Steak Haché au Poivre",d:"Steak haché, sauce au poivre, fromage gratiné, frites.",ing:"steak haché sauce poivre fromage gratiné frites"},ar:{n:"لحم مفروم بالفلفل",d:"لحم مفروم، صوص الفلفل، جبنة مشوية، بطاطس."},sizes:[["M",650],["L",850]]},
+{cat:"starvation",img:"starvation-1.jpg",badge:"⭐",fr:{n:"Mixte",d:"Poulet, steak haché, sauce au poivre, fromage gratiné, frites.",ing:"poulet steak haché sauce poivre fromage gratiné frites mixte"},ar:{n:"مشكل",d:"دجاج، لحم مفروم، صوص الفلفل، جبنة مشوية، بطاطس."},sizes:[["M",750],["L",950]]},
+
+/* ---------- TACOS ---------- */
+{cat:"tacos",img:"tacos-1.jpg",fr:{n:"Poulet",d:"Poulet, frites, sauce fromagère, sauce algérienne.",ing:"poulet frites sauce fromagère sauce algérienne"},ar:{n:"دجاج",d:"دجاج، بطاطس، صوص جبنة، صوص جزائري."},sizes:[["M",450],["L",650]]},
+{cat:"tacos",img:"tacos-1.jpg",fr:{n:"Poulet Curry",d:"Poulet, frites, sauce curry, sauce algérienne.",ing:"poulet frites sauce curry sauce algérienne"},ar:{n:"دجاج بالكاري",d:"دجاج، بطاطس، صوص كاري، صوص جزائري."},sizes:[["M",450],["L",650]]},
+{cat:"tacos",img:"tacos-2.jpg",fr:{n:"Viande",d:"Steak haché, frites, sauce fromagère, sauce algérienne.",ing:"viande steak haché frites sauce fromagère algérienne"},ar:{n:"لحم",d:"لحم مفروم، بطاطس، صوص جبنة، صوص جزائري."},sizes:[["M",550],["L",750]]},
+{cat:"tacos",img:"tacos-2.jpg",badge:"⭐",fr:{n:"Mixte",d:"Viande, poulet, frites, sauce fromagère, sauce algérienne.",ing:"viande poulet frites sauce fromagère algérienne mixte"},ar:{n:"مشكل",d:"لحم، دجاج، بطاطس، صوص جبنة، صوص جزائري."},sizes:[["M",650],["L",800]]},
+{cat:"tacos",img:"tacos-1.jpg",fr:{n:"Fromage Gratiné",d:"Tacos au fromage gratiné, frites et sauces au choix.",ing:"fromage gratiné frites sauce"},ar:{n:"جبنة مشوية",d:"تاكو بالجبنة المشوية، بطاطس وصوص حسب الاختيار."},sizes:[["M",650],["L",800]]},
+
+/* ---------- SANDWICHS ---------- */
+{cat:"sandwichs",img:"sandwich-1.jpg",fr:{n:"Poulet",d:"Pain brioché, poulet, sauce fromagère, frites, tomate, salade.",ing:"pain brioché poulet sauce fromagère frites tomate salade"},ar:{n:"دجاج",d:"خبز بريوش، دجاج، صوص جبنة، بطاطس، طماطم، سلطة."},sizes:[["Simple",350],["Double",550],["Triple",700]]},
+{cat:"sandwichs",img:"sandwich-1.jpg",fr:{n:"Poulet Curry",d:"Pain brioché, poulet, sauce curry, frites, tomate, salade.",ing:"pain brioché poulet sauce curry frites tomate salade"},ar:{n:"دجاج بالكاري",d:"خبز بريوش، دجاج، صوص كاري، بطاطس، طماطم، سلطة."},sizes:[["Simple",350],["Double",550],["Triple",700]]},
+{cat:"sandwichs",img:"sandwich-2.jpg",fr:{n:"Steak Haché",d:"Pain brioché, steak haché, sauce fromagère, oignons caramélisés, frites, salade, tomate.",ing:"pain brioché steak haché sauce fromagère oignons caramélisés frites salade tomate"},ar:{n:"لحم مفروم",d:"خبز بريوش، لحم مفروم، صوص جبنة، بصل مكرمل، بطاطس، سلطة، طماطم."},sizes:[["Simple",400],["Double",600],["Triple",750]]},
+{cat:"sandwichs",img:"sandwich-2.jpg",fr:{n:"Steak Haché au Poivre",d:"Pain brioché, steak haché, sauce au poivre, oignons caramélisés, frites, salade, tomate.",ing:"pain brioché steak haché sauce poivre oignons caramélisés frites salade tomate"},ar:{n:"لحم مفروم بالفلفل",d:"خبز بريوش، لحم مفروم، صوص الفلفل، بصل مكرمل، بطاطس، سلطة، طماطم."},sizes:[["Simple",400],["Double",600],["Triple",750]]},
+{cat:"sandwichs",img:"sandwich-1.jpg",badge:"⭐",fr:{n:"Mixte",d:"Pain brioché, steak haché, poulet, sauce fromagère, oignons caramélisés, frites, salade, tomate.",ing:"pain brioché steak haché poulet sauce fromagère oignons caramélisés frites salade tomate mixte"},ar:{n:"مشكل",d:"خبز بريوش، لحم مفروم، دجاج، صوص جبنة، بصل مكرمل، بطاطس، سلطة، طماطم."},sizes:[["Simple",500],["Double",700],["Triple",850]]},
+
+/* ---------- PÂTES ---------- */
+{cat:"pates",img:"pasta-1.jpg",fr:{n:"Sauce Fromagère",d:"Penne, sauce fromagère.",ing:"penne sauce fromagère pâtes"},ar:{n:"صوص الجبنة",d:"بيني، صوص جبنة."},sizes:[["Penne",650]]},
+{cat:"pates",img:"pasta-1.jpg",fr:{n:"Sauce Curry",d:"Penne, poulet, sauce curry, cheddar.",ing:"penne poulet sauce curry cheddar pâtes"},ar:{n:"صوص الكاري",d:"بيني، دجاج، صوص كاري، شيدر."},sizes:[["Penne",750]]},
+{cat:"pates",img:"pasta-2.jpg",fr:{n:"Sauce Crémeuse",d:"Penne, poulet, champignons, sauce crémeuse, cheddar.",ing:"penne poulet champignons sauce crémeuse cheddar pâtes"},ar:{n:"صوص كريمي",d:"بيني، دجاج، فطر، صوص كريمي، شيدر."},sizes:[["Penne",850]]},
+{cat:"pates",img:"pasta-2.jpg",fr:{n:"Sauce Bolognaise",d:"Penne, sauce bolognaise, cheddar.",ing:"penne sauce bolognaise cheddar pâtes"},ar:{n:"صوص بولونيز",d:"بيني، صوص بولونيز، شيدر."},sizes:[["Penne",900]]},
+
+/* ---------- SMASH BURGERS ---------- */
+{cat:"smash",img:"smash-1.jpg",fr:{n:"Smash M",d:"Double steak haché, cheddar, salade, tomate.",ing:"double steak haché cheddar salade tomate smash"},ar:{n:"سماش M",d:"لحم مفروم مزدوج، شيدر، سلطة، طماطم."},sizes:[["M",550]]},
+{cat:"smash",img:"smash-1.jpg",fr:{n:"Smash L",d:"Triple steak haché, cheddar, salade, tomate.",ing:"triple steak haché cheddar salade tomate smash"},ar:{n:"سماش L",d:"لحم مفروم ثلاثي، شيدر، سلطة، طماطم."},sizes:[["L",700]]},
+{cat:"smash",img:"smash-2.jpg",fr:{n:"Smash XL",d:"Quadruple steak haché, cheddar, salade, tomate.",ing:"quadruple steak haché cheddar salade tomate smash"},ar:{n:"سماش XL",d:"لحم مفروم رباعي، شيدر، سلطة، طماطم."},sizes:[["XL",850]]},
+{cat:"smash",img:"smash-2.jpg",badge:"🔥",fr:{n:"Smash XXL",d:"Quintuple steak haché, cheddar, salade, tomate.",ing:"quintuple steak haché cheddar salade tomate smash"},ar:{n:"سماش XXL",d:"لحم مفروم خماسي، شيدر، سلطة، طماطم."},sizes:[["XXL",950]]},
+
+/* ---------- SMASH CROGERS ---------- */
+{cat:"smashcroger",img:"smash-1.jpg",fr:{n:"Smash Croger M",d:"Double steak haché, cheddar, salade, tomate.",ing:"double steak haché cheddar salade tomate smash croger"},ar:{n:"سماش كروجر M",d:"لحم مفروم مزدوج، شيدر، سلطة، طماطم."},sizes:[["M",650]]},
+{cat:"smashcroger",img:"smash-1.jpg",fr:{n:"Smash Croger L",d:"Triple steak haché, cheddar, salade, tomate.",ing:"triple steak haché cheddar salade tomate smash croger"},ar:{n:"سماش كروجر L",d:"لحم مفروم ثلاثي، شيدر، سلطة، طماطم."},sizes:[["L",800]]},
+{cat:"smashcroger",img:"smash-2.jpg",fr:{n:"Smash Croger XL",d:"Quadruple steak haché, cheddar, salade, tomate.",ing:"quadruple steak haché cheddar salade tomate smash croger"},ar:{n:"سماش كروجر XL",d:"لحم مفروم رباعي، شيدر، سلطة، طماطم."},sizes:[["XL",950]]},
+{cat:"smashcroger",img:"smash-2.jpg",badge:"🔥",fr:{n:"Smash Croger XXL",d:"Quintuple steak haché, cheddar, salade, tomate.",ing:"quintuple steak haché cheddar salade tomate smash croger"},ar:{n:"سماش كروجر XXL",d:"لحم مفروم خماسي، شيدر، سلطة، طماطم."},sizes:[["XXL",1050]]},
+
+/* ---------- EXTRAS ---------- */
+{cat:"extras",img:"fries-1.jpg",fr:{n:"Barquette de Frites",d:"Frites croustillantes à emporter.",ing:"frites barquette"},ar:{n:"علبة بطاطس",d:"بطاطس مقرمشة للجميع."},sizes:[["150 DA",150]]},
+{cat:"extras",img:"fries-2.jpg",fr:{n:"Frites Fromagère",d:"Frites nappées de sauce fromagère.",ing:"frites sauce fromagère"},ar:{n:"بطاطس بالجبنة",d:"بطاطس مغمسة بصوص الجبنة."},sizes:[["250 DA",250]]},
+{cat:"extras",img:"fries-2.jpg",fr:{n:"Jus d'Orange",d:"Jus d'orange frais.",ing:"jus orange boisson"},ar:{n:"عصير برتقال",d:"عصير برتقال طازج."},sizes:[["300 DA",300]]},
+{cat:"extras",img:"fries-1.jpg",fr:{n:"Mix de Fruits",d:"Mix de fruits frais.",ing:"mix fruits boisson jus"},ar:{n:"كوكتيل فواكه",d:"مزيج فواكه طازجة."},sizes:[["400 DA",400]]},
+{cat:"extras",img:"fries-1.jpg",fr:{n:"Canette",d:"Boisson gazeuse en canette.",ing:"canette boisson gazeuse coca"},ar:{n:"علبة مشروب",d:"مشروب غازي في علبة."},sizes:[["150 DA",150]]},
+{cat:"extras",img:"fries-1.jpg",fr:{n:"Eau Minérale",d:"Bouteille d'eau minérale.",ing:"eau minérale boisson"},ar:{n:"ماء معدني",d:"زجاجة ماء معدني."},sizes:[["50 DA",50]]}
+];
+
+/* banners mapping */
+const BANNERS = {
+  burgers:"burger-3.jpg", crogers:"croger-1.jpg", starvation:"starvation-3.jpg",
+  tacos:"tacos-2.jpg", sandwichs:"sandwich-2.jpg", pates:"pasta-2.jpg",
+  smash:"smash-2.jpg", smashcroger:"smash-1.jpg", extras:"fries-2.jpg"
+};
+
+/* ===================== I18N ===================== */
+const T = {
+  fr:{tagline:"FRAIS · GÉNÉREUX · FAIT POUR TOI",headline:"T'as faim ? On s'occupe de toi.",location:"Bab Ezzouar, Alger",hours:"11h – 23h",searchPh:"Rechercher un plat ou un ingrédient…",footer:"Frais · Généreux · Fait pour toi — Bab Ezzouar, Alger",items:"plats",noResults:"Aucun plat trouvé",noResultsSub:"Essaie un autre mot-clé ou ingrédient.",view:"Voir le plat",call:"Commander par téléphone",currency:"DA",simple:"Simple",double:"Double",triple:"Triple",added:"Menu prêt !"},
+  ar:{tagline:"طازج · سخي · مصنوع من أجلك",headline:"جعان؟ خلّي علينا!",location:"باب الزوار، الجزائر",hours:"11ص – 11م",searchPh:"ابحث عن طبق أو مكوّن…",footer:"طازج · سخي · مصنوع من أجلك — باب الزوار، الجزائر",items:"أطباق",noResults:"لم يتم العثور على أطباق",noResultsSub:"جرّب كلمة أو مكوّن آخر.",view:"شاهد الطبق",call:"اطلب عبر الهاتف",currency:"د.ج",simple:"عادي",double:"مزدوج",triple:"ثلاثي",added:"تم التحضير!"}
+};
+
+let lang = localStorage.getItem('imstarving-lang') || 'fr';
+let filtered = null;
+let activeCat = null;
+
+function setLang(l){
+  lang = l;
+  localStorage.setItem('imstarving-lang', l);
+  document.documentElement.lang = l;
+  document.documentElement.dir = l==='ar'?'rtl':'ltr';
+  document.body.dir = l==='ar'?'rtl':'ltr';
+  document.getElementById('btnFr').classList.toggle('active', l==='fr');
+  document.getElementById('btnAr').classList.toggle('active', l==='ar');
+  applyStaticI18n();
+  render();
+  closeModal();
+}
+function t(k){ return T[lang][k]||T.fr[k]||k; }
+function applyStaticI18n(){
+  document.querySelectorAll('[data-i18n]').forEach(el=>{ el.textContent = t(el.dataset.i18n); });
+  const s=document.getElementById('search'); s.placeholder=t('searchPh');
+}
+function itemName(d){ return lang==='ar'? d.ar.n : d.fr.n; }
+function itemDesc(d){ return lang==='ar'? d.ar.d : d.fr.d; }
+function sizeLabel(lbl){
+  const m={Simple:t('simple'),Double:t('double'),Triple:t('triple'),M:'M',L:'L',XL:'XL',XXL:'XXL'};
+  return m[lbl]||lbl;
+}
+function price(v){ return lang==='ar' ? v.toLocaleString('fr-FR')+' '+t('currency') : v+' '+t('currency'); }
+
+/* ===================== RENDER ===================== */
+function buildNav(cats){
+  const nav=document.getElementById('nav');
+  nav.innerHTML = cats.map(c=>`<button class="nav-pill" data-cat="${c}" onclick="goCat('${c}')"><span class="em">${C[c].em}</span><span>${lang==='ar'?C[c].ar:C[c].fr}</span></button>`).join('');
+}
+function getCats(){
+  const order=['burgers','crogers','starvation','tacos','sandwichs','pates','smash','smashcroger','extras'];
+  return order.filter(c=>MENU.some(d=>d.cat===c));
+}
+function matchSearch(d,q){
+  if(!q) return true;
+  q=q.trim().toLowerCase();
+  const hay=[itemName(d),itemDesc(d),d.fr.n,d.fr.d,d.fr.ing||'',d.ar.n,d.ar.d].join(' ').toLowerCase();
+  return q.split(/\s+/).every(w=>hay.includes(w));
+}
+function render(){
+  const q=document.getElementById('search').value||'';
+  const list=MENU.filter(d=>matchSearch(d,q));
+  const cats=getCats().filter(c=>list.some(d=>d.cat===c));
+  buildNav(cats);
+  const main=document.getElementById('menu');
+  if(!list.length){
+    main.innerHTML=`<div class="empty"><span class="em">🔍</span><div style="font-size:17px;font-weight:800">${t('noResults')}</div><div style="font-size:13px;margin-top:6px">${t('noResultsSub')}</div></div>`;
+    updateSpy([]); return;
+  }
+  main.innerHTML = cats.map(c=>{
+    const items=list.filter(d=>d.cat===c);
+    const cname=lang==='ar'?C[c].ar:C[c].fr;
+    return `<section class="cat" id="cat-${c}">
+      <div class="cat-head"><div class="cat-icon">${C[c].em}</div><div class="cat-title">${cname}</div><div class="cat-count">${items.length} ${t('items')}</div></div>
+      ${q?'':`<img class="banner" src="assets/${BANNERS[c]}" alt="${cname}" loading="lazy">`}
+      ${items.map((d,i)=>dishHTML(d,i)).join('')}
+    </section>`;
+  }).join('');
+  const ids=cats.map(c=>'cat-'+c);
+  observeSections(ids);
+  updateSpy(ids);
+}
+function dishHTML(d,i){
+  const idx=MENU.indexOf(d);
+  const first=d.sizes[0];
+  const sizesHTML=d.sizes.length>1?`<div class="sizes">${d.sizes.map(s=>`<span class="size">${sizeLabel(s[0])} <b>${price(s[1])}</b></span>`).join('')}</div>`:'';
+  return `<article class="dish ${d.img?'':'no-photo'}" onclick="openModal(${idx})">
+    ${d.badge?`<span class="badge">${d.badge}</span>`:''}
+    <img class="dish-thumb" src="assets/${d.img}" alt="${itemName(d)}" loading="lazy" onerror="this.style.display='none'">
+    <div class="dish-body">
+      <div class="dish-top"><div class="dish-name">${itemName(d)}</div></div>
+      <div class="dish-desc">${itemDesc(d)}</div>
+      <div class="dish-bottom"><div><div class="price">${price(first[1])}</div>${sizesHTML}</div></div>
+    </div>
+    <span class="arrow">›</span>
+  </article>`;
+}
+
+/* ===================== SCROLLSPY ===================== */
+let observer=null;
+function observeSections(ids){
+  if(observer) observer.disconnect();
+  observer=new IntersectionObserver(entries=>{
+    const vis=entries.filter(e=>e.isIntersecting).sort((a,b)=>a.boundingClientRect.top-b.boundingClientRect.top);
+    if(vis.length) updateSpy(vis.map(e=>e.target.id));
+  },{rootMargin:'-70px 0px -65% 0px',threshold:0});
+  ids.forEach(id=>{const el=document.getElementById(id);if(el)observer.observe(el);});
+}
+function updateSpy(ids){
+  const cur=ids[0];
+  document.querySelectorAll('.nav-pill').forEach(p=>p.classList.toggle('active',p.dataset.cat===cur?.replace('cat-','')));
+  const active=document.querySelector('.nav-pill.active');
+  if(active) active.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
+}
+function goCat(c){
+  const el=document.getElementById('cat-'+c);
+  if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+/* ===================== MODAL ===================== */
+function openModal(idx){
+  const d=MENU[idx];
+  const cname=lang==='ar'?C[d.cat].ar:C[d.cat].fr;
+  const sizes=d.sizes.map(s=>`<div class="modal-size"><div class="lbl">${sizeLabel(s[0])}</div><div class="val">${price(s[1])}</div></div>`).join('');
+  document.getElementById('modal').innerHTML=`
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <img class="modal-img" src="assets/${d.img}" alt="${itemName(d)}" onerror="this.className='modal-img emoji-fallback';this.textContent='${C[d.cat].em}'">
+    <div class="modal-inner">
+      <div class="modal-cat">${C[d.cat].em} ${cname}</div>
+      <div class="modal-name">${itemName(d)}</div>
+      <div class="modal-desc">${itemDesc(d)}</div>
+      <div class="modal-sizes">${sizes}</div>
+      <a class="modal-cta" href="tel:+213659564611">📞 ${t('call')}</a>
+    </div>`;
+  document.getElementById('overlay').classList.add('show');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  document.getElementById('overlay').classList.remove('show');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+/* ===================== EVENTS ===================== */
+document.getElementById('search').addEventListener('input',render);
+window.addEventListener('hashchange',()=>closeModal());
+
+/* init */
+applyStaticI18n();
+render();
+</script>
+</body>
+</html>

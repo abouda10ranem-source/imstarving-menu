@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chevalet de table — I'm Starving Foods</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Inter:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--red:#e63946;--orange:#f77f00;--gold:#fcbf49;--ink:#1d1d1b;--cream:#fffaf3}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#e9e2d8;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:30px 16px 60px}
+.controls{display:flex;gap:10px;margin-bottom:22px;flex-wrap:wrap;justify-content:center}
+.btn{padding:12px 22px;border-radius:999px;font-weight:800;font-size:14px;border:none;cursor:pointer;transition:.2s}
+.btn-print{background:linear-gradient(135deg,var(--red),var(--orange));color:#fff;box-shadow:0 6px 18px rgba(230,57,70,.3)}
+.btn-print:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(230,57,70,.4)}
+.btn-back{background:#fff;color:var(--ink);box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.hint{font-size:12px;color:#7a7a7a;text-align:center;margin-bottom:20px}
+
+/* TENT : A4 landscape, folds into 3 */
+.tent{width:297mm;height:210mm;background:#fff;box-shadow:0 12px 40px rgba(0,0,0,.18);position:relative;display:flex;flex-direction:column;overflow:hidden}
+.tent::before{content:"";position:absolute;inset:0;background:linear-gradient(150deg,#fff9f2 0%,#fff 55%,#fff5ec 100%);z-index:0}
+.tent-inner{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16mm 20mm}
+.fold-line{position:absolute;top:0;bottom:0;width:0;border-left:2px dashed #d8c9b8;z-index:3}
+.fold-line.a{left:33.333%}
+.fold-line.b{left:66.666%}
+.fold-label{position:absolute;top:4px;font-size:8px;color:#bba995;letter-spacing:1px;z-index:4;transform:translateX(-50%)}
+
+.logo{display:flex;align-items:center;gap:10px;margin-bottom:6mm}
+.logo-icon{width:22mm;height:22mm;background:linear-gradient(135deg,var(--red),var(--orange));border-radius:6mm;display:grid;place-items:center;font-size:12mm;box-shadow:0 5px 16px rgba(230,57,70,.3)}
+.logo-text{text-align:left}
+.logo-name{font-weight:900;font-size:13mm;letter-spacing:-1px;line-height:1;color:var(--ink)}
+.logo-sub{font-size:3.6mm;font-weight:800;letter-spacing:2px;color:var(--orange);margin-top:1.5mm;text-transform:uppercase}
+.slogan{font-size:5.2mm;font-weight:900;color:var(--red);letter-spacing:1.5px;margin:6mm 0 2mm;text-transform:uppercase;text-align:center}
+.sub-slogan{font-size:3.6mm;color:#666;font-weight:600;margin-bottom:7mm;text-align:center}
+.qr-box{background:#fff;padding:5mm;border-radius:6mm;box-shadow:0 8px 30px rgba(120,40,10,.18);border:1px solid #f0e4d6}
+.qr-box img{width:66mm;height:66mm;display:block}
+.scan-title{font-size:6mm;font-weight:900;margin-top:7mm;color:var(--ink)}
+.scan-sub{font-size:3.6mm;color:#777;margin-top:2mm;font-weight:600;text-align:center;max-width:90mm;line-height:1.5}
+.bottom{position:relative;z-index:1;background:linear-gradient(135deg,var(--red),var(--orange));color:#fff;display:flex;justify-content:space-around;align-items:center;padding:6mm 20mm;font-size:3.4mm;font-weight:700;letter-spacing:.5px}
+.bottom span{display:flex;align-items:center;gap:2mm}
+
+@media print{
+  @page{size:A4 landscape;margin:0}
+  body{background:#fff;padding:0}
+  .controls,.hint{display:none!important}
+  .tent{box-shadow:none;width:297mm;height:210mm;page-break-after:avoid}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+@media(max-width:800px){.tent{transform-origin:top center;transform:scale(.42);margin-bottom:-120mm}}
+</style>
+</head>
+<body>
+<div class="controls">
+  <button class="btn btn-print" onclick="window.print()">🖨️ Imprimer le chevalet</button>
+  <a class="btn btn-back" href="index.html">← Retour au menu</a>
+</div>
+<div class="hint">Imprime en paysage A4, puis plie en 3 le long des pointillés.</div>
+
+<div class="tent">
+  <div class="fold-line a"><span class="fold-label">PLI 1</span></div>
+  <div class="fold-line b"><span class="fold-label">PLI 2</span></div>
+  <div class="tent-inner">
+    <div class="logo">
+      <div class="logo-icon">🍔</div>
+      <div class="logo-text">
+        <div class="logo-name">IM STARVING</div>
+        <div class="logo-sub">FOODS · BAB EZZOUAR</div>
+      </div>
+    </div>
+    <div class="slogan">Frais · Généreux · Fait pour toi</div>
+    <div class="sub-slogan">Scanne et découvre tout notre menu</div>
+    <div class="qr-box"><img src="assets/qr-dark.png" alt="QR code menu"></div>
+    <div class="scan-title">SCANNE-MOI 📱</div>
+    <div class="scan-sub">Ton menu digital complet t'attend. Choisis, commande, régale-toi !</div>
+  </div>
+  <div class="bottom">
+    <span>📍 Bab Ezzouar, Alger</span>
+    <span>🕒 Ouvert 11h – 23h</span>
+    <span>📞 0659 56 46 11</span>
+  </div>
+</div>
+</body>
+</html>
